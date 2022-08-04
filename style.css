@@ -1,0 +1,813 @@
+*{
+    margin: 0px;
+    padding:0px;
+    list-style:none;
+    box-sizing:border-box;
+}
+:root{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    --padding-primary: 1rem;
+    --color-primary:#F8F8FB;
+    --color-secondary: lightgray;
+    --color-tertiary: #D82026;
+    --color-focus: black;
+    --margin-primary:1rem;
+    --border-primary: 2.5px solid var(--color-primary);
+    --font-size-primary:0.8rem;
+    --font-size-h2: 1rem;
+    --font-size-secondary:0.7rem;
+    color: #4C4B4B;
+    /* font-size: 1rem */
+}
+.main-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: var(--color-primary);
+    padding: 1.5rem;
+}
+/* Menu Stylings */
+.header{
+    width: 200px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: var(--font-size-primary);
+    position: relative;
+}
+
+.header a{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    text-decoration: none;
+}
+.header > img{
+    width: 50%;
+    display: block;
+    margin-bottom: calc(2*var(--margin-primary));
+}
+.header i{
+    font-size: 1rem;
+    margin-inline-end: 0.5rem;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 1 0;
+}
+.header .active{
+    color:var(--color-tertiary);
+}
+
+/* >> Main Menu Stylings */
+
+.menu__list-item{
+    padding-block: var(--padding-primary);
+    cursor: pointer;
+    transition: color 0.2s ease;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu__list-item:hover{
+    color:var(--color-tertiary);
+}
+
+/* >> Profile Menu Stylings */
+
+.profile-menu__list-item{
+    padding-block: var(--padding-primary);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.profile-menu__list-item:hover{
+    color:var(--color-tertiary);
+}
+
+.profile-menu__list-item:last-child{
+    display: flex;
+    position: relative;
+    left: -1rem;
+}
+.profile-menu__list-item__profile-pic{
+    width: 30px;
+    height: 30px;
+    background-image: url(./assets/img/nathan_jones.jpeg);
+    background-size: cover;
+    margin-inline-end: 0.5rem;
+    border-radius: 13px;
+    position: relative;
+}
+.profile-menu__list-item__profile-pic::after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #26D366;
+    display: inline-block;
+    border-radius: 10px;
+    position: absolute;
+    bottom:0px;
+    right: 0px;
+}
+
+/* >> Ticket Collapsing Menu Stylings */
+.ticket-menu-widget{
+    height: calc(100vh - 3rem);
+    width: 350px;
+    position: absolute;
+    background-color: white;
+    top: 0px;
+    right: -350px;
+    z-index: 1;
+    border: var(--border-primary);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto minmax(0,1fr);
+
+}
+.ticket-menu-open{
+    margin-left: 1rem;
+    padding: 0.2rem 0.25rem;
+    border-radius: 10px;
+    font-size: 0.7rem !important;
+    color: var(--color-tertiary);
+}
+.ticket-menu-close{
+    padding: 0.3rem 0.35rem;
+    border-radius: 18px;
+    font-size: var(--font-size-primary);
+    cursor: pointer;
+    color: var(--color-tertiary);
+    border: 1px solid var(--color-tertiary);
+}
+
+/* >> Ticket Collapsing Menu Stylings >> Title */
+.ticket-menu-widget__title{
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: var(--border-primary);
+}
+.ticket-menu-widget__title > h2{
+    font-size: var(--font-size-h2);
+}
+.ticket-menu-widget__title > i{
+    font-size: 0.7rem !important;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+.ticket-menu-widget__title > div{
+    margin-left: auto;
+}
+.ticket-menu-widget__title > div > i:first-child{
+    padding: 0.2rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* >> Ticket Collapsing Menu Stylings >> Search Bar */
+.ticket-menu-widget__search{
+    padding: 0.5rem 1rem;
+    border-bottom: var(--border-primary);
+}
+.ticket-menu-widget__search > input{
+    width: 100%;
+    font-size: 0.7rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-secondary);
+    display: block;
+    padding: 9px 4px 9px 40px;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+}
+.ticket-menu-widget__search > input:focus{
+    outline: none;
+    border: 1px solid var(--color-focus);
+}
+/* >> Ticket Collapsing Menu Stylings >> List Of Tickets */
+.ticket-menu-widget__list{
+    padding: 1rem;
+    overflow-y: auto;
+
+}
+.ticket-menu-widget__list-item{
+    border: 1px solid var(--color-secondary);
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding: 1rem;
+
+
+}
+/* >> Ticket Collapsing Menu Stylings >> List Of Tickets >> Ticket >> Title */
+.ticket-menu-widget__list-item__title{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 0.7rem;
+   margin-bottom: 1rem;
+}
+.ticket-menu-widget__list-item__title > h3{
+    font-weight: lighter;
+ }
+.ticket-menu-widget__list-item__title > i{
+    font-size: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 5px;
+    color: #2AA3FB;
+    background-color :#E2F2FC;
+}
+/* >> Ticket Collapsing Menu Stylings >> List Of Tickets >> Ticket >> Description */
+.ticket-menu-widget__list-item__desc{
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+.ticket-menu-widget__list-item__desc > p{
+    font-weight: bold;
+}
+.ticket-menu-widget__list-item__desc > i{
+    background-color: #EEC103;
+    padding: 0.5rem;
+    border-radius: 15px;
+    position: relative;
+}
+.ticket-menu-widget__list-item__desc > i::after{
+    content: "";
+    background-image: url(./assets/img/WhatsApp.svg.webp);
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    bottom: -2px;
+    right: -5px;
+}
+/* >> Ticket Collapsing Menu Stylings >> List Of Tickets >> Ticket >> Footer */
+.ticket-menu-widget__list-item__footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ticket-menu-widget__list-item__footer > div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.7rem;
+}
+.ticket-menu-widget__list-item__footer > div > i{
+    font-size: 0.8rem;
+}
+
+
+/* Section Stylings */
+.section-container{
+    flex: 1 1 0;
+    height: 100%;
+    display: flex;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+/* >> Chat Section Stylings */
+.chat-section{
+    background-color: white;
+    flex: 1 1 0;
+    height: 100%;
+    border-inline-end:var(--border-primary);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    
+}
+/* >> Chat Section Stylings >> Case */
+.chat-section__case{
+    padding: var(--padding-primary);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-block-end: var(--border-primary);
+}
+.chat-section__case > h2{
+    font-size: 1.2rem;
+    font-weight: lighter;
+    
+}
+.chat-section__case > h2 > span{
+    font-weight: bold;
+}
+/* >> Chat Section Stylings >> Case >> Status*/
+.chat-section__case__status{
+    margin-inline-start: 1rem;
+    color:#FFC22A;
+    background-color: #FFF5DE;
+    padding: 0.2rem;
+    border-radius: 10px;
+    font-size: var(--font-size-primary);
+}
+/* >> Chat Section Stylings >> Case >> Profile*/
+.chat-section__case__profile{
+    margin-inline-start:auto;
+    display: flex;
+    align-items: center;
+}
+.chat-section__case__profile__img{
+    margin-inline-start:auto;
+    background-image: url(./assets/img/nathan_jones.jpeg);
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    border-radius: 15px;
+    margin-inline-end: 4px;
+}
+.chat-section__case__profile__name{
+    font-size: var(--font-size-h2);
+}
+/* >> Chat Section Stylings >> Person Bar*/
+.chat-section__person{
+    padding-inline: var(--padding-primary);
+    padding-block: calc(0.5 * var(--padding-primary));
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-block-end: var(--border-primary);
+
+}
+.chat-section__person__details__name{
+   font-size: var(--font-size-primary);
+   font-weight: 550;
+}
+.chat-section__person__details__email{
+    font-size: var(--font-size-primary);
+}
+.chat-section__person__img{
+    position: relative;
+    background-image: url(./assets/img/nathan_jones.jpeg);
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    border-radius: 15px;
+    margin-inline-end: 8px;
+}
+.chat-section__person__img--online{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(38,211,102);
+    border-radius:10px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+/* >> Chat Section Stylings >> Type Bar*/
+.chat-section__type{
+    display: flex;
+    padding: var(--padding-primary);
+    border-block-start: var(--border-primary);
+}
+.chat-section__type__logo{
+    background-image: url(./assets/img/netflix_logo_2.png);
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    border-radius: 15px;
+    margin-inline-end: 8px;
+}
+.chat-section__type > input{
+    flex: 1 1 0;
+    border: var(--border-primary);
+    border-radius: 15px;
+    padding: 0.5rem;
+}
+.chat-section__type > input:focus{
+    outline: 1px solid var(--color-focus);
+}
+/* >> Chat Section Stylings >> Chat Area */
+
+.chat-section__chat-area{
+    padding: var(--padding-primary);
+    overflow-y:auto;
+}
+/* >> Chat Section Stylings >> Chat Area >> Day Wrapping*/
+.chat-section__chat-area__day-wrapper{
+    width: 100%;
+    font-size: var(--font-size-primary);
+    margin-bottom: 2rem;
+}
+.chat-section__chat-area__day-wrapper__date{
+    position: sticky;
+    top: 0px;
+    width: max-content;
+    margin: auto;
+    padding: 0.5rem;
+    background-color: var(--color-primary);
+    border-radius: 15px;
+    border: 1px solid var(--color-secondary);
+    margin-bottom: 2rem;
+}
+/* >> Chat Section Stylings >> Chat Area >> Day Wrapping >> Person-1 Styles*/
+/* Person-1 */
+.chat-section__chat-area__day-wrapper__person1{
+    width: 60%;
+    margin-left: auto;
+    margin-top: 2rem;
+
+}
+.chat-section__chat-area__day-wrapper__person1__main-container{
+    display: flex;
+    margin-bottom: 0.5rem;
+
+}
+.chat-section__chat-area__day-wrapper__person1__timestamp{
+    width: calc(100% - 2.8rem);
+    text-align: right;
+}
+.chat-section__chat-area__day-wrapper__person1__message-container{
+    width: calc(100% - 2.5rem);
+}
+.chat-section__chat-area__day-wrapper__person1__message{
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    background-color: #0B61F6;
+    color: #EBF1FF;
+    line-height: 1.2rem;
+    border-radius: 15px;
+    
+}
+.chat-section__chat-area__day-wrapper__person1__message:last-child{
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+    margin-bottom: 0px;
+}
+.chat-section__chat-area__day-wrapper__person1__message:first-child{
+    border-radius: 15px;
+    border-bottom-right-radius: 0px;
+}
+
+.chat-section__chat-area__day-wrapper__person1__image-container{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.chat-section__chat-area__day-wrapper__person1__image{
+    background-image: url(./assets/img/netflix_logo_2.png);
+    background-size: contain;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 15px;
+}
+/* >> Chat Section Stylings >> Chat Area >> Day Wrapping >> Person-2 Styles*/
+/* Person-2 */
+.chat-section__chat-area__day-wrapper__person2{
+    width: 60%;
+    margin-right: auto;
+    margin-top: 2rem;
+
+}
+.chat-section__chat-area__day-wrapper__person2__main-container{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 0.5rem;
+
+}
+.chat-section__chat-area__day-wrapper__person2__timestamp{
+    width: calc(100% - 2.8rem);
+    text-align: left;
+    margin-left: auto;
+}
+.chat-section__chat-area__day-wrapper__person2__message-container{
+    width: calc(100% - 2.5rem);
+}
+.chat-section__chat-area__day-wrapper__person2__message{
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+    line-height: 1.2rem;
+    border-radius: 15px;
+    border: 1px solid var(--color-secondary);
+    
+}
+.chat-section__chat-area__day-wrapper__person2__message:last-child{
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    margin-bottom: 0px;
+}
+.chat-section__chat-area__day-wrapper__person2__message:first-child{
+    border-radius: 15px;
+    border-bottom-left-radius: 0px;
+}
+
+.chat-section__chat-area__day-wrapper__person2__image-container{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.chat-section__chat-area__day-wrapper__person2__image{
+    background-image: url(./assets/img/nathan_jones.jpeg);
+    background-size: contain;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 15px;
+    position: relative;
+}
+
+.chat-section__chat-area__day-wrapper__person2__image-online{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(38,211,102);
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+/* >> Info Section Stylings */
+.info-section{
+    background-color: white;
+    flex: 1 1 0;
+    height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+}
+
+.info-section__wrapper{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto minmax(0,1fr) auto;
+}
+/* >> Info Section >> Customer Insights Section Stylings */
+.info-section__customer-insights{
+    padding: var(--padding-primary);
+    border-bottom: var(--border-primary);
+}
+.info-section__customer-insights__title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.info-section__customer-insights__title__img{
+    background-color: rgb(243,234,254);
+    padding: 0.4rem;
+    border-radius: 15px;
+    margin-inline-end: 1rem;
+}
+.info-section__customer-insights__title__img > i{
+    color: #A570FA;
+    font-size: 1rem;
+}
+.info-section__customer-insights__title__heading{
+    font-size: var(--font-size-h2);
+}
+.info-section__customer-insights__list-item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: var(--font-size-primary);
+}
+.info-section__customer-insights__list-item > i{
+    margin-inline-end: 1rem;
+    font-size: 1rem;
+}
+/* >> Info Section >> Shows Section Stylings */
+.info-section__shows{
+    padding: var(--padding-primary);
+    border-bottom: var(--border-primary);
+}
+.info-section__shows__title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.info-section__shows__title__img{
+    background-color: #F8D7E1;
+    padding: 0.4rem;
+    border-radius: 15px;
+    margin-inline-end: 1rem;
+}
+.info-section__shows__title__img > i{
+    color: #DF3F72;
+    font-size: 1rem;
+}
+.info-section__shows__title__heading{
+    font-size: var(--font-size-h2);
+}
+.info-section__shows__list{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+.info-section__shows__list-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-inline-end: 1rem;
+}
+.info-section__shows__list-item__img{
+    height: 170px;
+    width: 120px;
+    margin-block-end: 0.5rem;
+    
+}
+.info-section__shows__list-item__img > img{
+    height: 100%;
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+.info-section__shows__list-item__desc{
+    font-size: var(--font-size-primary);;
+}
+/* >> Info Section >> Past Issues Section Stylings */
+.info-section__issues{
+    padding: var(--padding-primary);
+    border-bottom: var(--border-primary);
+    display: flex;
+    flex-direction: column;
+}
+.info-section__issues__title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.info-section__issues__title__img{
+    background-color: #E7F0FE;
+    padding: 0.4rem;
+    border-radius: 15px;
+    margin-inline-end: 1rem;
+}
+.info-section__issues__title__img > i{
+    color: #3B7BF8;
+    font-size: 1.2rem;
+}
+.info-section__issues__title__heading{
+    font-size: var(--font-size-h2);
+}
+.info-section__issues__container-wrapper{
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.info-section__issues__container{
+    font-size: var(--font-size-primary);
+}
+.info-section__issues__container__month{
+    position: sticky;
+    top: 0px;
+    left:0px;
+    z-index: 1;
+    background-color:white;
+    padding-block-end: 1rem;
+}
+
+.info-section__issues__container__list-item{
+    border-inline-start: 1px solid var(--color-secondary);
+    width: calc(100% - 1rem);
+    margin-left: auto;
+    padding-bottom: 2rem;
+
+    
+}
+.info-section__issues__container:last-child .info-section__issues__container__list-item:last-child{
+    border-inline-start: 1px solid white;
+    
+}
+.info-section__issues__container__ticket{
+    width: calc(100% - 1rem);
+    margin-left: auto;
+    position: relative;
+    border: var(--border-primary);
+    border-radius: 10px;
+}
+.info-section__issues__container__ticket::before{
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(__fa-font-solid);
+    content: '\54';
+    position: absolute;
+    left: calc(-1rem - 14px);
+    top: -3px;
+    background-color: #7D7C87;
+    color: white;
+    padding: 0.4rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.5rem;
+    border: 2px solid white;
+}
+.info-section__issues__container__ticket::after{
+    content: "21st June, 2022";
+    display: block;
+    font-size: 0.6rem;
+    padding: 1rem;
+    padding-top: 0px;;
+}
+.info-section__issues__container__ticket > div{
+    background-color: var(--color-primary);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    font-size: 0.7rem;
+}
+.info-section__issues__container__ticket > div > div{
+    margin-inline-start: auto;
+    padding: 0.2rem 0.5rem;
+    color: white;
+    border-radius: 5px;
+}
+
+.info-section__issues__container__ticket > p{
+    padding: 1rem;
+    line-height: 1.2rem;
+}
+
+/* >> Info Section >> Help Articles Section Stylings */
+.info-section__help-articles{
+    height: 300px;
+    padding: 1rem;
+}
+.info-section__help-articles__title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.info-section__help-articles__title__img{
+    background-color: rgb(243,234,254);
+    padding: 0.4rem;
+    border-radius: 15px;
+    margin-inline-end: 1rem;
+}
+.info-section__help-articles__title__img > i{
+    color: #A570FA;
+    font-size: 1.2rem;
+}
+.info-section__help-articles__title__heading{
+    font-size: var(--font-size-h2);
+}
+.info-section__help-articles__search{
+    margin-bottom: 1rem;
+}
+.info-section__help-articles__search > input{
+   width: 100%;
+   background-color: var(--color-primary);
+   border: 1px solid var(--color-secondary);
+   border-radius: 5px;
+   font-size: var(--font-size-primary);
+  display: block;
+  padding: 9px 4px 9px 40px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+}
+
+.info-section__help-articles__search > input:focus{
+    outline: none;
+    border: 1px solid var(--color-focus);
+}
+
+.info-section__help-articles__list-item{
+    padding: 1rem;
+    font-size: var(--font-size-primary);
+    border: 1px solid var(--color-secondary);
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.info-section__help-articles__list-item > h3{
+    margin-bottom: 0.5rem;
+}
+
+/* Generic Modifier Classes */
+.average{
+    background-color: #EBAD00 !important;
+}
+.bad{
+    background-color: #ED1C23 !important;
+}
+.good{
+    background-color: #3AB75D !important;
+}
+.hide{
+    display: none !important;
+}
