@@ -14,5 +14,15 @@ close_btn.addEventListener("click",()=>{
     open_btn.classList.remove("hide");
 });
 
-issues.scrollTop = issues.scrollHeight - issues.clientHeight - 20;
+issues.scrollTop = issues.scrollHeight - issues.clientHeight;
 chat.scrollTop = chat.scrollHeight - chat.clientHeight;
+
+let customerInsights = document.querySelector('.info-section__customer-insights');
+let shows = document.querySelector('.info-section__shows');
+let issues_container = document.querySelector('.info-section__issues');
+let infoSection = document.querySelector('.info-section');
+let height = infoSection.clientHeight - customerInsights.clientHeight - shows.clientHeight;
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+if(vw > 1050){
+    issues_container.style.height = Math.max(height,400) + "px";
+}

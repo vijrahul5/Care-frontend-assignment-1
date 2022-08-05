@@ -89,6 +89,9 @@ nav{
     padding-block: var(--padding-primary);
     cursor: pointer;
     transition: color 0.2s ease;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 .profile-menu__list-item:hover{
     color:var(--color-tertiary);
@@ -97,6 +100,7 @@ nav{
 .profile-menu__list-item:last-child{
     display: flex;
     position: relative;
+    align-items: center;
     left: -1rem;
 }
 .profile-menu__list-item__profile-pic{
@@ -286,9 +290,12 @@ nav{
     flex: 1 1 0;
     height: 100%;
     border-inline-end:var(--border-primary);
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    /* display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto; */
     
 }
 /* >> Chat Section Stylings >> Case */
@@ -396,6 +403,7 @@ nav{
 
 .chat-section__chat-area{
     padding: var(--padding-primary);
+    flex: 1 0 0;
     overflow-y:auto;
 }
 /* >> Chat Section Stylings >> Chat Area >> Day Wrapping*/
@@ -442,9 +450,10 @@ nav{
     color: #EBF1FF;
     line-height: 1.2rem;
     border-radius: 15px;
+    border-bottom-right-radius: 0px;
     
 }
-.chat-section__chat-area__day-wrapper__person1__message:last-child{
+/* .chat-section__chat-area__day-wrapper__person1__message:last-child{
     border-radius: 15px;
     border-top-right-radius: 0px;
     margin-bottom: 0px;
@@ -452,7 +461,7 @@ nav{
 .chat-section__chat-area__day-wrapper__person1__message:first-child{
     border-radius: 15px;
     border-bottom-right-radius: 0px;
-}
+} */
 
 .chat-section__chat-area__day-wrapper__person1__image-container{
     flex-grow: 1;
@@ -497,10 +506,11 @@ nav{
     color: black;
     line-height: 1.2rem;
     border-radius: 15px;
+    border-bottom-left-radius: 0px;
     border: 1px solid var(--color-secondary);
     
 }
-.chat-section__chat-area__day-wrapper__person2__message:last-child{
+/* .chat-section__chat-area__day-wrapper__person2__message:last-child{
     border-radius: 15px;
     border-top-left-radius: 0px;
     margin-bottom: 0px;
@@ -508,7 +518,7 @@ nav{
 .chat-section__chat-area__day-wrapper__person2__message:first-child{
     border-radius: 15px;
     border-bottom-left-radius: 0px;
-}
+} */
 
 .chat-section__chat-area__day-wrapper__person2__image-container{
     flex-grow: 1;
@@ -535,6 +545,73 @@ nav{
     bottom: 0px;
     right: 0px;
 }
+.chat-section__chat-area__day-wrapper__call{
+    width: 30%;
+    min-width: fit-content;
+    margin-left: auto;
+    display: flex;
+    margin-top: 2rem;
+}
+.chat-section__chat-area__day-wrapper__call__main-container{
+    width: calc(100% - 2.5rem);
+    border: 1px solid lightgray;
+    padding: 1rem;
+    border-radius: 15px;
+    border-bottom-right-radius: 0px;
+    display: flex;
+    align-items: center;
+}
+.chat-section__chat-area__day-wrapper__call__main-container > i{
+    background-color: #3BB75D;
+    padding: 0.7rem;
+    border-radius: 25px;
+    color: white;
+    margin-right: 1rem;
+    position: relative;
+}
+.chat-section__chat-area__day-wrapper__call__main-container > i::after{
+    animation: pulse 1000ms cubic-bezier(0.9, 0.7, 0.5, 0.9) infinite;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #3BB75D;
+    border-radius: 50%;
+    z-index: 0;
+}
+@keyframes pulse {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.4);
+      opacity: 0.4;
+    }
+  }
+
+.chat-section__chat-area__day-wrapper__call__main-container > div > p:first-child{
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.chat-section__chat-area__day-wrapper__call__image-container{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.chat-section__chat-area__day-wrapper__call__image{
+    background-image: url(./assets/img/netflix_logo_2.png);
+    background-size: contain;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 15px;
+}
+
+
 
 /* >> Info Section Stylings */
 .info-section{
@@ -546,12 +623,12 @@ nav{
     overscroll-behavior: contain;
 }
 
-.info-section__wrapper{
+/* .info-section__wrapper{
     height: 100%;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto minmax(0,1fr) auto;
-}
+    grid-template-rows: auto minmax(300px,1fr) auto;
+} */
 /* >> Info Section >> Customer Insights Section Stylings */
 .info-section__customer-insights{
     padding: var(--padding-primary);
@@ -644,12 +721,13 @@ nav{
     border-bottom: var(--border-primary);
     display: flex;
     flex-direction: column;
+    height: 400px;
 }
 .info-section__issues__title{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 .info-section__issues__title__img{
     background-color: #E7F0FE;
@@ -673,10 +751,11 @@ nav{
 }
 .info-section__issues__container__month{
     position: sticky;
-    top: 0px;
+    top: -0.5rem;
     left:0px;
     z-index: 1;
     background-color:white;
+    padding-block-start: 1rem;
     padding-block-end: 1rem;
 }
 
@@ -744,8 +823,8 @@ nav{
 
 /* >> Info Section >> Help Articles Section Stylings */
 .info-section__help-articles{
-    height: 300px;
     padding: 1rem;
+    min-height: max-content;
 }
 .info-section__help-articles__title{
     display: flex;
@@ -798,6 +877,48 @@ nav{
     margin-bottom: 0.5rem;
 }
 
+.agent-calling-widget{
+    position: fixed;
+    display: flex;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    z-index: 1;
+}
+.agent-calling-widget__image{
+    background-image: url(./assets/img/nathan_jones.jpeg);
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    border-radius: 15px;
+    margin-right: 1rem;
+}
+.agent-calling-widget__name{
+    margin-right: 1rem;
+    font-size: 0.9rem;
+}
+.agent-calling-widget__calling{
+    margin-right: 0.5rem;
+    font-size: 0.7rem;
+}
+.agent-calling-widget__call-duration{
+    color: #3BB75D;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+.agent-calling-widget__phone-icon{
+    background-color: var(--color-tertiary);
+    padding: 0.7rem;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
 /* Generic Modifier Classes */
 .average{
     background-color: #EBAD00 !important;
@@ -810,4 +931,110 @@ nav{
 }
 .hide{
     display: none !important;
+}
+
+@media only screen and (max-width: 1400px){
+    .main-container{
+        flex-direction: column;
+    }
+    .header{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        margin-bottom: 1.5rem;
+        position: sticky;
+        z-index: 2;
+        top: 0;
+        background-color: var(--color-primary);
+    }
+    .header > img{
+        width: 100px;
+        height: min-content;
+        margin: 0px;
+        margin-right: 2rem;
+    }
+    nav{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    nav > ul{
+        display: flex;
+        flex-direction: row;
+        width: max-content;
+    }
+    nav > ul > li{
+        margin-right: 1rem;
+    }
+    nav > ul > li:last-child{
+        margin-right: 0rem;
+    }
+    .profile-menu__list-item__profile-pic{
+        margin-left: 1rem;
+    }
+    .section-container{
+        height: calc(100vh - 80px - 4.5rem);
+    }
+    .ticket-menu-open{
+        margin-inline-end: 0px !important;
+    }
+    .ticket-menu-widget{
+        top: calc(80px + 1.5rem);
+        left: 0px;
+        z-index: 5;
+        height: calc(100vh - 80px - 4.5rem);
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    :root{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 1050px){
+    :root{
+        font-size: 16px;
+    }
+    .chat-section{
+        height: calc(100vh - 80px - 4.5rem);
+        margin-bottom: 1.5rem;
+        flex: unset;
+    }
+    .info-section{
+        height: unset;
+        width: 100%;
+        flex: unset;
+    }
+    .info-section__issues{
+        height: 500px;
+    }
+    .section-container{
+        height: unset;
+        display: block;
+        box-shadow: none;
+    }
+    .main-container{
+        height: fit-content;
+    }
+    li > i + a{
+        display: none;
+    }
+    li > div + a{
+        display: none;
+    }
+    li > i{
+        font-size: 1.2rem !important;
+    }
+    nav > ul:last-child > li:first-child{
+        margin-left: 1rem;
+    }
+    .ticket-menu-open{
+        margin-left: 0px;
+    }
+    .ticket-menu-widget__list{
+        overscroll-behavior: contain;
+    }
 }
