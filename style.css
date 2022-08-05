@@ -4,6 +4,12 @@
     list-style:none;
     box-sizing:border-box;
 }
+button{
+    outline: none;
+    border: none;
+    background-color: none;
+    background: none;
+}
 :root{
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
@@ -26,6 +32,7 @@
     display: flex;
     background-color: var(--color-primary);
     padding: 1.5rem;
+    min-height: calc(500px + 3rem);
 }
 /* Menu Stylings */
 .header{
@@ -104,21 +111,21 @@ nav{
     left: -1rem;
 }
 .profile-menu__list-item__profile-pic{
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     background-image: url(./assets/img/nathan_jones.jpeg);
     background-size: cover;
     margin-inline-end: 0.5rem;
-    border-radius: 13px;
+    border-radius: 0.8125rem;
     position: relative;
 }
 .profile-menu__list-item__profile-pic::after{
     content: "";
-    width: 10px;
-    height: 10px;
+    width: 0.625rem;
+    height: 0.625rem;
     background-color: #26D366;
     display: inline-block;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     position: absolute;
     bottom:0px;
     right: 0px;
@@ -127,28 +134,30 @@ nav{
 /* >> Ticket Collapsing Menu Stylings */
 .ticket-menu-widget{
     height: calc(100vh - 3rem);
-    width: 350px;
+    width: 21.5rem;
     position: absolute;
     background-color: white;
     top: 0px;
-    right: -350px;
+    right: -21.5rem;
     z-index: 1;
     border: var(--border-primary);
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    /* display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto minmax(0,1fr);
+    grid-template-rows: auto auto minmax(0,1fr); */
 
 }
 .ticket-menu-open{
     margin-left: 1rem;
     padding: 0.2rem 0.25rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     font-size: 0.7rem !important;
     color: var(--color-tertiary);
 }
 .ticket-menu-close{
     padding: 0.3rem 0.35rem;
-    border-radius: 18px;
+    border-radius: 1.125rem;
     font-size: var(--font-size-primary);
     cursor: pointer;
     color: var(--color-tertiary);
@@ -167,7 +176,7 @@ nav{
 .ticket-menu-widget__title > h2{
     font-size: var(--font-size-h2);
 }
-.ticket-menu-widget__title > i{
+.ticket-menu-widget__title > button > i{
     font-size: 0.7rem !important;
     margin-left: 0.5rem;
     cursor: pointer;
@@ -175,10 +184,10 @@ nav{
 .ticket-menu-widget__title > div{
     margin-left: auto;
 }
-.ticket-menu-widget__title > div > i:first-child{
+.ticket-menu-widget__title > div > button:first-child > i{
     padding: 0.2rem;
     border: 1px solid var(--color-secondary);
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     cursor: pointer;
 }
 
@@ -190,10 +199,10 @@ nav{
 .ticket-menu-widget__search > input{
     width: 100%;
     font-size: 0.7rem;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     border: 1px solid var(--color-secondary);
     display: block;
-    padding: 9px 4px 9px 40px;
+    padding: 9px 0.25rem 9px 40px;
     background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
 }
 .ticket-menu-widget__search > input:focus{
@@ -204,12 +213,13 @@ nav{
 .ticket-menu-widget__list{
     padding: 1rem;
     overflow-y: auto;
+    flex-grow: 1;
 
 }
 .ticket-menu-widget__list-item{
     border: 1px solid var(--color-secondary);
     margin-bottom: 1rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     padding: 1rem;
 
 
@@ -228,7 +238,7 @@ nav{
 .ticket-menu-widget__list-item__title > i{
     font-size: 0.5rem;
     padding: 0.3rem;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     color: #2AA3FB;
     background-color :#E2F2FC;
 }
@@ -245,18 +255,18 @@ nav{
 .ticket-menu-widget__list-item__desc > i{
     background-color: #EEC103;
     padding: 0.5rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     position: relative;
 }
 .ticket-menu-widget__list-item__desc > i::after{
     content: "";
     background-image: url(./assets/img/WhatsApp.svg.webp);
     background-size: cover;
-    width: 18px;
-    height: 18px;
+    width: 1.125rem;
+    height: 1.125rem;
     position: absolute;
     bottom: -2px;
-    right: -5px;
+    right: -0.3125rem;
 }
 /* >> Ticket Collapsing Menu Stylings >> List Of Tickets >> Ticket >> Footer */
 .ticket-menu-widget__list-item__footer{
@@ -280,7 +290,7 @@ nav{
     flex: 1 1 0;
     height: 100%;
     display: flex;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 0.5rem 0px;
 
 }
 
@@ -320,7 +330,7 @@ nav{
     color:#FFC22A;
     background-color: #FFF5DE;
     padding: 0.2rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     font-size: var(--font-size-primary);
 }
 /* >> Chat Section Stylings >> Case >> Profile*/
@@ -332,11 +342,11 @@ nav{
 .chat-section__case__profile__img{
     margin-inline-start:auto;
     background-image: url(./assets/img/nathan_jones.jpeg);
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     background-size: cover;
-    border-radius: 15px;
-    margin-inline-end: 4px;
+    border-radius: 0.9rem;
+    margin-inline-end: 0.25rem;
 }
 .chat-section__case__profile__name{
     font-size: var(--font-size-h2);
@@ -361,17 +371,17 @@ nav{
 .chat-section__person__img{
     position: relative;
     background-image: url(./assets/img/nathan_jones.jpeg);
-    width: 25px;
-    height: 25px;
+    width: 1.5625rem;
+    height: 1.5625rem;
     background-size: cover;
-    border-radius: 15px;
-    margin-inline-end: 8px;
+    border-radius: 0.93rem;
+    margin-inline-end: 0.5rem;
 }
 .chat-section__person__img--online{
-    width: 10px;
-    height: 10px;
+    width: 0.625rem;
+    height: 0.625rem;
     background-color: rgb(38,211,102);
-    border-radius:10px;
+    border-radius:0.625rem;
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -384,17 +394,18 @@ nav{
 }
 .chat-section__type__logo{
     background-image: url(./assets/img/netflix_logo_2.png);
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     background-size: cover;
-    border-radius: 15px;
-    margin-inline-end: 8px;
+    border-radius: 0.93rem;
+    margin-inline-end: 0.5rem;
 }
 .chat-section__type > input{
     flex: 1 1 0;
     border: var(--border-primary);
-    border-radius: 15px;
+    border-radius: 0.93rem;
     padding: 0.5rem;
+    font-size: 0.8rem;
 }
 .chat-section__type > input:focus{
     outline: 1px solid var(--color-focus);
@@ -419,7 +430,7 @@ nav{
     margin: auto;
     padding: 0.5rem;
     background-color: var(--color-primary);
-    border-radius: 15px;
+    border-radius: 0.93rem;
     border: 1px solid var(--color-secondary);
     margin-bottom: 2rem;
 }
@@ -449,17 +460,17 @@ nav{
     background-color: #0B61F6;
     color: #EBF1FF;
     line-height: 1.2rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     border-bottom-right-radius: 0px;
     
 }
 /* .chat-section__chat-area__day-wrapper__person1__message:last-child{
-    border-radius: 15px;
+    border-radius: 0.93rem;
     border-top-right-radius: 0px;
     margin-bottom: 0px;
 }
 .chat-section__chat-area__day-wrapper__person1__message:first-child{
-    border-radius: 15px;
+    border-radius: 0.93rem;
     border-bottom-right-radius: 0px;
 } */
 
@@ -475,7 +486,7 @@ nav{
     background-size: contain;
     height: 2rem;
     width: 2rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
 }
 /* >> Chat Section Stylings >> Chat Area >> Day Wrapping >> Person-2 Styles*/
 /* Person-2 */
@@ -505,18 +516,18 @@ nav{
     background-color: white;
     color: black;
     line-height: 1.2rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     border-bottom-left-radius: 0px;
     border: 1px solid var(--color-secondary);
     
 }
 /* .chat-section__chat-area__day-wrapper__person2__message:last-child{
-    border-radius: 15px;
+    border-radius: 0.93rem;
     border-top-left-radius: 0px;
     margin-bottom: 0px;
 }
 .chat-section__chat-area__day-wrapper__person2__message:first-child{
-    border-radius: 15px;
+    border-radius: 0.93rem;
     border-bottom-left-radius: 0px;
 } */
 
@@ -532,15 +543,15 @@ nav{
     background-size: contain;
     height: 2rem;
     width: 2rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     position: relative;
 }
 
 .chat-section__chat-area__day-wrapper__person2__image-online{
-    width: 10px;
-    height: 10px;
+    width: 0.625rem;
+    height: 0.625rem;
     background-color: rgb(38,211,102);
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -556,7 +567,7 @@ nav{
     width: calc(100% - 2.5rem);
     border: 1px solid lightgray;
     padding: 1rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     border-bottom-right-radius: 0px;
     display: flex;
     align-items: center;
@@ -564,7 +575,7 @@ nav{
 .chat-section__chat-area__day-wrapper__call__main-container > i{
     background-color: #3BB75D;
     padding: 0.7rem;
-    border-radius: 25px;
+    border-radius: 1.5625rem;
     color: white;
     margin-right: 1rem;
     position: relative;
@@ -608,7 +619,7 @@ nav{
     background-size: contain;
     height: 2rem;
     width: 2rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
 }
 
 
@@ -621,6 +632,7 @@ nav{
     overflow-y: auto;
     scroll-behavior: smooth;
     overscroll-behavior: contain;
+    min-height: 500px;
 }
 
 /* .info-section__wrapper{
@@ -643,7 +655,7 @@ nav{
 .info-section__customer-insights__title__img{
     background-color: rgb(243,234,254);
     padding: 0.4rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     margin-inline-end: 1rem;
 }
 .info-section__customer-insights__title__img > i{
@@ -678,7 +690,7 @@ nav{
 .info-section__shows__title__img{
     background-color: #F8D7E1;
     padding: 0.4rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     margin-inline-end: 1rem;
 }
 .info-section__shows__title__img > i{
@@ -701,8 +713,8 @@ nav{
     margin-inline-end: 1rem;
 }
 .info-section__shows__list-item__img{
-    height: 170px;
-    width: 120px;
+    height: 10.6rem;
+    width: 7.5rem;
     margin-block-end: 0.5rem;
     
 }
@@ -710,7 +722,7 @@ nav{
     height: 100%;
     width: 100%;
     display: block;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 .info-section__shows__list-item__desc{
     font-size: var(--font-size-primary);;
@@ -732,7 +744,7 @@ nav{
 .info-section__issues__title__img{
     background-color: #E7F0FE;
     padding: 0.4rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     margin-inline-end: 1rem;
 }
 .info-section__issues__title__img > i{
@@ -776,7 +788,7 @@ nav{
     margin-left: auto;
     position: relative;
     border: var(--border-primary);
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 .info-section__issues__container__ticket::before{
     display: inline-block;
@@ -785,12 +797,12 @@ nav{
     font: var(__fa-font-solid);
     content: '\54';
     position: absolute;
-    left: calc(-1rem - 14px);
+    left: calc(-1rem - 10.25rem);
     top: -3px;
     background-color: #7D7C87;
     color: white;
     padding: 0.4rem 0.5rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     font-size: 0.5rem;
     border: 2px solid white;
 }
@@ -813,7 +825,7 @@ nav{
     margin-inline-start: auto;
     padding: 0.2rem 0.5rem;
     color: white;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
 
 .info-section__issues__container__ticket > p{
@@ -835,7 +847,7 @@ nav{
 .info-section__help-articles__title__img{
     background-color: rgb(243,234,254);
     padding: 0.4rem;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     margin-inline-end: 1rem;
 }
 .info-section__help-articles__title__img > i{
@@ -852,10 +864,10 @@ nav{
    width: 100%;
    background-color: var(--color-primary);
    border: 1px solid var(--color-secondary);
-   border-radius: 5px;
+   border-radius: 0.3125rem;
    font-size: var(--font-size-primary);
   display: block;
-  padding: 9px 4px 9px 40px;
+  padding: 9px 0.25rem 9px 40px;
   background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
 }
 
@@ -869,7 +881,7 @@ nav{
     font-size: var(--font-size-primary);
     border: 1px solid var(--color-secondary);
     margin-bottom: 1rem;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     cursor: pointer;
 }
 
@@ -886,17 +898,17 @@ nav{
     align-items: center;
     justify-content: space-between;
     font-size: 0.8rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     bottom: 2.5rem;
     right: 2.5rem;
     z-index: 1;
 }
 .agent-calling-widget__image{
     background-image: url(./assets/img/nathan_jones.jpeg);
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     background-size: cover;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     margin-right: 1rem;
 }
 .agent-calling-widget__name{
@@ -915,9 +927,19 @@ nav{
 .agent-calling-widget__phone-icon{
     background-color: var(--color-tertiary);
     padding: 0.7rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     margin-right: 0.5rem;
     cursor: pointer;
+    font-size: 0.7rem;
+}
+.agent-calling-widget__angle-icon{
+    /* background-color: var(--color-tertiary); */
+    color: white;
+    padding: 0.7rem;
+    border-radius: 0.625rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    font-size: 0.7rem;
 }
 /* Generic Modifier Classes */
 .average{
@@ -951,7 +973,7 @@ nav{
         background-color: var(--color-primary);
     }
     .header > img{
-        width: 100px;
+        width: 6.25rem;
         height: min-content;
         margin: 0px;
         margin-right: 2rem;
@@ -991,7 +1013,7 @@ nav{
 
 @media only screen and (max-width: 1200px){
     :root{
-        font-size: 15px;
+        font-size: 0.93rem;
     }
 }
 @media only screen and (max-width: 1050px){
@@ -1019,12 +1041,10 @@ nav{
     .main-container{
         height: fit-content;
     }
-    li > i + a{
+    li > a + a{
         display: none;
     }
-    li > div + a{
-        display: none;
-    }
+    
     li > i{
         font-size: 1.2rem !important;
     }
@@ -1041,6 +1061,12 @@ nav{
 
 @media only screen and (max-width: 600px){
     :root{
-        font-size: 14px;
-    }
+        font-size: 13px;
+    }   
+}
+
+@media only screen and (max-width: 400px){
+    :root{
+        font-size: 11px;
+    }  
 }
