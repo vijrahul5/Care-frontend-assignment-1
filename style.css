@@ -1038,3 +1038,9 @@ nav{
         overscroll-behavior: contain;
     }
 }
+
+@media only screen and (max-width: 600px){
+    :root{
+        font-size: 14px;
+    }
+}
