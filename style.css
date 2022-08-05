@@ -797,7 +797,7 @@ nav{
     font: var(__fa-font-solid);
     content: '\54';
     position: absolute;
-    left: calc(-1rem - 10.25rem);
+    left: calc(-1rem - 1rem);
     top: -3px;
     background-color: #7D7C87;
     color: white;
